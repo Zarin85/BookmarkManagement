@@ -1,0 +1,64 @@
+<div class="col-lg-12 col-md-12 col-sm-12">
+
+    <form [formGroup]="bookmarkForm">
+
+        <div style="font-size:medium;">Add BookMark</div>
+        <br />
+        <div class="form-group">
+            <label for="title">Title: </label>
+            <input id="title" formControlName="title" [maxlength]="30" type="text" class="form-control" id="title"
+                placeholder="Title" [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
+            <div *ngIf="submitted && f['title'].errors" class=”invalid-feedback”>
+                <div *ngIf="f['title'].errors">Title is required</div>
+            </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <label for="url">Url: </label>
+            <input type="text" formControlName="url"  class="form-control" id="url" placeholder="Url"
+                [ngClass]="{ 'is-invalid': submitted && f['url'].errors }">
+            <div *ngIf="submitted && f['url'].errors" class=”invalid-feedback”>
+                <div *ngIf="f['url'].errors">Url is required</div>
+            </div>
+        </div>
+
+
+        <br />
+
+        <div class="row">
+            <div class="col-lg-6 col-md-4 col-sm-2" style="display: inline-block;">
+                <div class="form-group">
+                    <label for="category">Select Category: </label>
+                    <select (change)="categoryChanged(f['category'])" formControlName="category" aria-placeholder="Select Category">
+                        <option disabled>Select Categories</option>
+                        <option *ngFor="let category of categories" value={{category.categoryId}} >{{category.categoryName}}</option>
+                    </select>
+                </div>
+            </div>&nbsp;&nbsp;
+            <div class="col-lg-6 col-md-4 col-sm-2" style="display: inline-block;">
+                <div class="form-group">
+                    <button (click)="addCategory()" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="isNewCategory" class="form-group">
+            <label for="categoryName">Category Name: </label>
+            <input formControlName="categoryName" type="text" class="form-control" id="categoryName" placeholder="Add Category Name"
+                [ngClass]="{ 'is-invalid': submitted && f['categoryName'].errors }">
+            <div *ngIf="submitted && f['categoryName'].errors" class=”invalid-feedback”>
+                <div *ngIf="f['categoryName'].errors">Category is required</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-4 col-sm-2" style="display: inline-block;">
+                <button type="submit" (click)="onSave()" class="btn btn-primary">Submit</button>
+            </div>&nbsp;&nbsp;
+            <div class="col-lg-6 col-md-4 col-sm-2" style="display: inline-block;">
+                <button (click)="onClose()" class="btn btn-primary">Close</button>
+            </div>
+        </div>
+    </form>
+</div>

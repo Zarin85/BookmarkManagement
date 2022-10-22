@@ -1,0 +1,10 @@
+
+    <mat-card class="example-card" style="width: 50%;  display: inline-block;">
+        <mat-card-content  *ngFor="let bookmark of bookmarks">
+          <span style="font-size: bold;"> {{bookmark.title}}</span> <br/>
+          <button mat-button (click)="getDetail(bookmark)">See Details</button>
+      
+        </mat-card-content>
+      </mat-card>
+
+  
