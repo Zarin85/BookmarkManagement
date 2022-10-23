@@ -4,21 +4,21 @@
 
         <div style="font-size:medium;">Add BookMark</div>
         <br />
-        <div class="form-group">
+        <div class="required">
             <label for="title">Title: </label>
             <input id="title" formControlName="title" [maxlength]="30" type="text" class="form-control" id="title"
                 placeholder="Title" [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
-            <div *ngIf="submitted && f['title'].errors" class=”invalid-feedback”>
+            <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
                 <div *ngIf="f['title'].errors">Title is required</div>
             </div>
         </div>
 
         <br />
-        <div class="form-group">
+        <div class="required">
             <label for="url">Url: </label>
             <input type="text" formControlName="url"  class="form-control" id="url" placeholder="Url"
                 [ngClass]="{ 'is-invalid': submitted && f['url'].errors }">
-            <div *ngIf="submitted && f['url'].errors" class=”invalid-feedback”>
+            <div *ngIf="submitted && f['url'].errors" class="invalid-feedback">
                 <div *ngIf="f['url'].errors">Url is required</div>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <label for="categoryName">Category Name: </label>
             <input formControlName="categoryName" type="text" class="form-control" id="categoryName" placeholder="Add Category Name"
                 [ngClass]="{ 'is-invalid': submitted && f['categoryName'].errors }">
-            <div *ngIf="submitted && f['categoryName'].errors" class=”invalid-feedback”>
+            <div *ngIf="submitted && f['categoryName'].errors" class="invalid-feedback">
                 <div *ngIf="f['categoryName'].errors">Category is required</div>
             </div>
         </div>

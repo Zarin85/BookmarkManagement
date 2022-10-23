@@ -20,9 +20,16 @@ export class BookmarksComponent implements OnInit {
   constructor(private service: TempDataService) { }
 
   ngOnInit(): void {
+    this.loadCategories();
     this.loadBookmarks();
     this.loadCategoryWiseBookMark();
   }
+
+  loadCategories()
+  {
+    this.categories = this.service.getData("category");
+  }
+
   loadBookmarks()
   {
     this.bookmarks = this.service.getData("bookmarks");
@@ -46,6 +53,7 @@ export class BookmarksComponent implements OnInit {
                 let obj = 
                 {
                   categoryId: x.categoryId,
+                  categoryName: x.categoryName,
                   data: data
                 }
                 this.bookmarkByCategory.push(obj);

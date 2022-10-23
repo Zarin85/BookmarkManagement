@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-lg-6 col-md-4 col-sm-2">
         <div *ngFor="let bookmarkByCategory of bookmarkByCategory">
-
-        <app-categorywisebookmark (getDetails)="getDetails($event)" [bookmarkByCategory]="bookmarkByCategory.data"></app-categorywisebookmark>
+            <span style="position: fixed;">{{bookmarkByCategory.categoryName}}</span>
+        <app-categorywisebookmark style="padding-left:5%; padding-top: 10%;" (getDetails)="getDetails($event)" [bookmarkByCategory]="bookmarkByCategory.data"></app-categorywisebookmark>
         </div>
         
     </div>
